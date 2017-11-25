@@ -1,0 +1,109 @@
+
+<div class="topRightPanel" >
+  <span  *ngIf="temp==true">
+    Hello {{User}} !!<br>
+    You have Rs {{Amount}}
+  </span>
+  <span>
+  <button  name="logout" id="logout" class="logoutbutton" (click)="Logout($event)">EXIT</button>
+  </span>
+</div>
+
+<div class="mainComponent">
+
+<table class = "table-responsive">
+  <tr>
+    <td>1st 12</td>
+    <td><input class="num1" id="num1" type="number" name="ticketNum" value="" step="500" max="10000" min="0" [(ngModel)]="mainModel.FirstTwelve" ></td>
+    <td>2nd 12</td>
+    <td><input class="num2" id="num2" type="number" name="ticketNum" value="" step="500" max="10000" min="0"[(ngModel)]="mainModel.TwelevetoTwentyFour" >
+    </td>
+    <td>3rd 12</td>
+    <td><input class="num3" id="num3" type="number" name="ticketNum" value="" step="500" max="10000" min="0" [(ngModel)]="mainModel.ThreetoTwentyFour" >
+    </td>
+  </tr>
+
+
+<tr>
+  <td style="width: auto">0</td>
+  <td><input class="num4" id="num4" type="number" name="ticketNum" value="" step="500" max="10000" min="0" [(ngModel)]="mainModel.Zero" >
+  </td>
+  <td>1 to 18</td>
+  <td><input class="num5" id="num5" type="number" name="ticketNum" value="" step="500" max="10000" min="0" [(ngModel)]="mainModel.OneToEighteen" >
+  </td>
+  <td>19 to 36</td>
+  <td><input class="num6" id="num6" type="number" name="ticketNum" value="" step="500" max="10000" min="0" [(ngModel)]="mainModel.NinteentoThirtySix" >
+  </td>
+</tr>
+
+<tr>
+  <td>Even</td>
+  <td><input class="num7" id="num7" type="number" name="ticketNum" value="" step="500" max="10000" min="0" [(ngModel)]="mainModel.Even" >
+  </td>
+  <td>Odd</td>
+  <td><input class="num8" id="num8" type="number" name="ticketNum" value="" step="500" max="10000" min="0" [(ngModel)]="mainModel.Odd" >
+  </td>
+
+  <td>
+    <!--<button  name="submitbutton" id="submitbutton" class="submitbutton" (click)="Play()">Play</button>-->
+    <button  name="submitbutton" data-toggle="modal" data-target="#myModal"  id="submitbutton" class="submitbutton">Play</button>
+  </td>
+  <td></td>
+</tr>
+</table>
+</div>
+
+<div class = "won">
+  <div class = "invisible">
+    <button type="button" class="btn btn-primary" id = "wonbtn" data-toggle="modal" data-target="#won">
+      Valid Input
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" tabindex="-1" role="dialog" id = "won">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Congratulations!!!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <p>Random Number Generated is{{randomNumber}} </p>
+          <p> You won{{winningAmount}}</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" >Play Again</button>
+          <button type = "button" class = "btn btn-primary"(click) = "LogOut($event)">Exit Game</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Try Your Luck</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to try your luck for current selection?
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="Play()" class="btn btn-default" data-dismiss="modal">Yes</button>
+        <button type="button"  class="btn btn-default" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>

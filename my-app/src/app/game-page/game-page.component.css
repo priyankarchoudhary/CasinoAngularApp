@@ -1,0 +1,49 @@
+table{
+  border: 1px solid black;
+  table-layout: fixed;
+  width: 700px;
+  height: 300px;
+}
+
+body
+{
+  margin: 0%;
+  padding:0%;
+}
+.mainComponent
+{
+  margin-left: 20%;
+  margin-top: 10%;
+}
+.submitbutton{
+  background-color:  darkgreen;
+  font-weight: bold;
+  margin-left: 80%;
+  margin-top: 15%;
+  color: black;
+
+}
+
+.topRightPanel
+{
+  background-color: white;
+  width: 250px;
+  top: 4% ;
+  right: 8%;
+  position: absolute;
+  height: 50px;
+  border-style: solid;
+  color: black;
+}
+
+.logoutbutton
+{
+  background-color: white;
+  border-style: solid;
+  top: 4% ;
+  right: 0%;
+  position: absolute;
+  height: 50px;
+  border-style: solid;
+  color: black;
+}
