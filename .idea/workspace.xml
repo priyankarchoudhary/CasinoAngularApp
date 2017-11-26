@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a911091-d5b3-4ddc-b372-5d5a121da0e3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-app/src/app/game-page/game-page.component.html" afterPath="$PROJECT_DIR$/my-app/src/app/game-page/game-page.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-app/src/app/game-page/game-page.component.ts" afterPath="$PROJECT_DIR$/my-app/src/app/game-page/game-page.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-app/.gitignore" afterPath="$PROJECT_DIR$/my-app/.gitignore" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,7 +17,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="game-page.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="game-page.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-app/src/app/game-page/game-page.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
@@ -27,6 +27,16 @@
                 <element signature="e#3822#3829#1" expanded="true" />
                 <element signature="e#5130#5137#1" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/my-app/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="693">
+              <caret line="43" column="19" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,6 +85,7 @@
         <option value="$PROJECT_DIR$/my-app/src/app/game-service.service.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/game-page/game-page.component.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/game-page/game-page.component.html" />
+        <option value="$PROJECT_DIR$/my-app/.gitignore" />
       </list>
     </option>
   </component>
@@ -118,27 +129,6 @@
               <item name="CasinoAngularApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="CasinoAngularApp" type="462c0819:PsiDirectoryNode" />
               <item name="my-app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CasinoAngularApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CasinoAngularApp" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CasinoAngularApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CasinoAngularApp" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CasinoAngularApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CasinoAngularApp" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="game-page" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -187,12 +177,12 @@
       <workItem from="1511494634349" duration="25905000" />
       <workItem from="1511531226034" duration="26995000" />
       <workItem from="1511670227770" duration="9392000" />
-      <workItem from="1511681185607" duration="2079000" />
+      <workItem from="1511681185607" duration="2359000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119087000" />
+    <option name="totallyTimeSpent" value="119367000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -265,16 +255,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/game-service.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/app/game-page/game-page.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -693,6 +673,14 @@
             <element signature="e#3822#3829#1" expanded="true" />
             <element signature="e#5130#5137#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="43" column="19" lean-forward="false" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
