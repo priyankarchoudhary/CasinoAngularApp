@@ -52,6 +52,7 @@
 </tr>
 </table>
 </div>
+<!----------------------------------Win loss display popup----------------------------------------------->
 
 <div class = "won">
   <div class = "invisible">
@@ -85,9 +86,10 @@
     </div>
   </div>
 </div>
-
+<!--------------------------------------Try with current selection popup------------------------------------>
 
 <!-- Modal -->
+<!--Called on Play button click by passing id "myModal"-->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -101,8 +103,42 @@
         Are you sure you want to try your luck for current selection?
       </div>
       <div class="modal-footer">
-        <button type="button" (click)="Play()" class="btn btn-default" data-dismiss="modal">Yes</button>
-        <button type="button"  class="btn btn-default" data-dismiss="modal">No</button>
+        <button type="button"  class="btn btn-default" data-dismiss="modal" (click)="Play()">Yes</button>
+        <button type="button"  class="btn btn-default" data-dismiss="modal" (click)="ngOnInit()">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--------------------------------------Insufficient Balance popup------------------------------------>
+<div class = "balancecondition">
+  <div class = "invisible">
+    <button type="button" class="btn btn-primary" id = "balancecondition" data-toggle="modal" data-target="#balancecondition1">
+      Invalid Input
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" tabindex="-1" role="dialog" id = "balancecondition1">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <div><h5 class="modal-title">Error</h5></div>
+          <div>
+          <p>Sorry Dear!!</p><br>
+          <p>You have insufficient balance for your selection</p>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="ngOnInit()" >Agree</button>
+          <button type = "button" class = "btn btn-primary"(click) = "Logout($event)">Not Agree</button>
+        </div>
       </div>
     </div>
   </div>
