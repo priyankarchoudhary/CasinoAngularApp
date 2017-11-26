@@ -1,9 +1,10 @@
 table{
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   table-layout: fixed;
   width: 700px;
   height: 300px;
 }
+
 
 body
 {
@@ -12,8 +13,8 @@ body
 }
 .mainComponent
 {
-  margin-left: 20%;
-  margin-top: 10%;
+  margin-left: 29%;
+  margin-top: 30%;
 }
 .submitbutton{
   background-color:  darkgreen;
