@@ -25,7 +25,9 @@ export class GamePageComponent implements OnInit {
   private User = this.model.CustomerName;
   private Amount =this.model.AccountBalance;
   private Email = this.model.EmailId;
+
   private randomNumber = Math.floor(Math.random() * 36) + 0;
+
 
   mainModel : any;
   ngOnInit() {
