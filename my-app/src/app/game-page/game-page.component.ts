@@ -247,7 +247,7 @@ export class GamePageComponent implements OnInit {
 
       });
   }
-
+//C:\Users\priyankarchoudhary\WebstormProjects\CasinoAngularApp\my-app\src\app\game-page\game-page.component.ts
   Logout($event)
   {
     event.preventDefault();
