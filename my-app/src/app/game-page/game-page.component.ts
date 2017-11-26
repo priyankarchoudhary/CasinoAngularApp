@@ -54,7 +54,7 @@ export class GamePageComponent implements OnInit {
         this.loc = 0;
 
         for(var i in this.mainModel){if(this.mainModel[i]>0) {counter = counter + 1;}}
-        if(counter==0 || counter > 1){alert("You can select exactly one choice");}
+        if(counter==0 || counter > 1){(<HTMLInputElement>(document.getElementById("GameRule"))).click();}
 
          if(counter==1)
          {

@@ -144,3 +144,39 @@
     </div>
   </div>
 </div>
+
+
+<!---->
+<!--------------------------------------Insufficient Balance popup------------------------------------>
+<div class = "balancecondition">
+  <div class = "invisible">
+    <button type="button" class="btn btn-primary" id = "GameRule" data-toggle="modal" data-target="#balancecondition2">
+      Invalid Input
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" tabindex="-1" role="dialog" id = "balancecondition2">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <div><h5 class="modal-title">Error</h5></div>
+          <div>
+            <p>Sorry Dear!!</p><br>
+            <p>You can bet only exactly one choice</p>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="ngOnInit()" >Agree</button>
+          <button type = "button" class = "btn btn-primary"(click) = "Logout($event)">Not Agree</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
