@@ -26,6 +26,8 @@ export class GameServiceService {
 
     return this.http.patch(AddMoneyURL+'?email='+data.email+'&deposited='+data.betamount+'&multipliedBy='+data.mul,data,header)
       .map(res => res.json());
+
+
   }
 
 }

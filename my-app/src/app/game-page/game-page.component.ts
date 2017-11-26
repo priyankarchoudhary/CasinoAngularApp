@@ -19,18 +19,13 @@ export class GamePageComponent implements OnInit {
 
 
 
-  private bettingAmount = 0;
-  private loc = 0;
-  private catA = 1.5; private catB=1.25;private catC=10;
-  private temp: boolean =this.request.showControls;
+  private bettingAmount = 0;   private winningAmount = 0;   private message = "Lose";   private message_top = "Sorry" ;private mult = 0.0;
+  private loc = 0;   private catA = 1.5;   private catB=1.25;   private catC=10;   private temp: boolean =this.request.showControls;
   private model = JSON.parse(localStorage.getItem("detail"));
   private User = this.model.CustomerName;
   private Amount =this.model.AccountBalance;
   private Email = this.model.EmailId;
-  private randomNumber = 12//Math.floor(Math.random() * 36) + 1;
-
-
-
+  private randomNumber = 12//Math.floor(Math.random() * 36) + 0;
 
   mainModel : any;
   ngOnInit() {
@@ -43,13 +38,19 @@ export class GamePageComponent implements OnInit {
     this.mainModel.NinteentoThirtySix = 0;
     this.mainModel.Even = 0;
     this.mainModel.Odd = 0;
+
+
+    this.Pull()
+
+
   }
 
 
   Play(){
         //this.ngOnInit()
         let counter = 0;
-           /*---------------------------------------------------*/
+        this.loc = 0;
+
         for(var i in this.mainModel){if(this.mainModel[i]>0) {counter = counter + 1;}}
         if(counter==0 || counter > 1){alert("You can select exactly one choice");}
 
@@ -84,48 +85,88 @@ export class GamePageComponent implements OnInit {
   GameRules() // it is called inside BlockMoneyFunction()
   {
     let choice = 0;
-
-    if(this.loc>=1 && this.loc<=3){choice = 1;}
-    if(this.loc ==4){choice ==2;}
-    if(this.loc >=5 && this.loc <=8){choice = 3;}
-    alert("Your choice is"+choice);
+    choice = this.loc;
+    //alert("Your choice is"+choice);
     switch (choice)
     {
       case 1:
-        if((this.randomNumber >= 1 && this.randomNumber <= 12)
-          ||( this.randomNumber >= 13 && this.randomNumber <= 24)
-          ||(this.randomNumber >= 25 && this.randomNumber <= 36))
-        {
-              alert("In case 1");
-              this.GetReward(this.catA)
-        }
-        break;
-
+          if((this.randomNumber >= 1 && this.randomNumber <= 12) )
+          {
+            this.mult = this.catA;
+            this.message = "Win";
+           this. message_top = "Congratulations";
+          }
+          break;
       case 2:
-        if(this.randomNumber == 0)
+        if(this.randomNumber >= 13 && this.randomNumber <= 24)
         {
-          alert("In case 2");
-          this.GetReward(this.catC)
+          this.message = "Win";
+          this. message_top = "Congratulations";
+          this.mult = this.catA;
         }
         break;
       case 3:
-        if((this.randomNumber >= 1 && this.randomNumber <= 18)
-          ||(this.randomNumber >= 19 && this.randomNumber <= 36)
-          ||(this.randomNumber % 2 == 0)||(this.randomNumber % 2 != 0) )
+        if(this.randomNumber >= 25 && this.randomNumber <= 36)
+        {
+          this.message = "Win";
+          this. message_top = "Congratulations";
+          this.mult = this.catA;
 
-           {
-             alert("In case 3");
-             this.GetReward(this.catB)
-           }
-
+        }
         break;
 
+      case 4:
+        if(this.randomNumber == 0)
+        {
+          this.message = "Win";
+          this. message_top = "Congratulations";
+          this.mult = this.catC;
+        }
+        break;
+      case 5:
+        if((this.randomNumber >= 1 && this.randomNumber <= 18))
+        {
+          this.message = "Win";
+          this. message_top = "Congratulations";
+          this.mult = this.catB;
+
+        }
+        break;
+      case 6:
+        if(this.randomNumber >= 19 && this.randomNumber <= 36)
+        {
+          this.message = "Win"
+          this. message_top = "Congratulations";
+          this.mult = this.catB;
+        }
+      break;
+      case 7:
+        if(this.randomNumber % 2 == 0)
+        {
+          this.message = "Win";
+          this. message_top = "Congratulations";
+          this.mult = this.catB;
+        }
+      break;
+      case 8:
+      if(this.randomNumber % 2 != 0)
+      {
+        this.message = "Win";
+        this.mult = this.catB;
+      }
+      break;
+
+
       default:
-        alert("you lost")
-        this.GetReward(0.0);
+        this.message = "Lose";
+        this. message_top = "Congratulations";
+        this.mult = this.catA;
         break
 
     }
+    choice = 0;
+   // alert(this.mult+"I am here")
+    this.GetReward(this.mult);
     this.ngOnInit()
 
 
@@ -133,26 +174,32 @@ export class GamePageComponent implements OnInit {
 
   GetReward(muliplicationFactor)
   {
-      alert(this.Email+" "+this.bettingAmount+" "+muliplicationFactor);
+
+      this.winningAmount = this.bettingAmount * muliplicationFactor;
       (<HTMLInputElement>(document.getElementById("wonbtn"))).click();
       this.AddMoneyFunction(this.Email, this.bettingAmount, muliplicationFactor);
+       this.model = localStorage.getItem("detail");
 
-
-    this.request.GetLoginData(this.Email)
-      .subscribe( data => {
-          if(data != null)
-          {
-            if(data.EmailId==this.Email)
-            {
-              this.request.showControls= true;
-              localStorage.setItem("detail",JSON.stringify(data));
-            }
-          }
-          else{
-            console.log("Fail");
-          }
-        }
-      );
+      // this.request.GetLoginData(this.Email)
+      // .subscribe( data => {
+      //     if(data != null)
+      //     {
+      //       if(data.EmailId==this.Email)
+      //       {
+      //         this.request.showControls= true;
+      //         console.log(data);
+      //         localStorage.setItem("detail",JSON.stringify(data));
+      //         alert("Check local storage")
+      //         this.model = JSON.parse(localStorage.getItem("detail"));
+      //         this.User = this.model.CustomerName;
+      //         this.Amount =this.model.AccountBalance;
+      //       }
+      //     }
+      //     else{
+      //       console.log("Fail");
+      //     }
+      //   }
+      // );
 
 
   }
@@ -164,7 +211,7 @@ export class GamePageComponent implements OnInit {
       betamount : bettingAmount,
       mul:mult
     }
-    alert(email+" "+bettingAmount+" "+mult+" add or remove money");
+
     this.addRequest.AddMoneyService(user)
       .subscribe( data => {
         if(data != null)
@@ -176,6 +223,11 @@ export class GamePageComponent implements OnInit {
           console.log("Failed to update Amount");
         }
       });
+
+
+
+
+
   }
 
   BlockMoneyFunction(email,bettingAmount,temp)
@@ -184,7 +236,7 @@ export class GamePageComponent implements OnInit {
       email : email,
       amount : bettingAmount
     }
-    alert(email+' '+bettingAmount+" "+temp)
+
     this.blockRequest.BlockMoneyService(user)
       .subscribe( data => {
         if(data != null)
@@ -203,6 +255,30 @@ export class GamePageComponent implements OnInit {
     localStorage.clear();
     this.request.showControls= false;
     this.router.navigate(['/login']);
+  }
+
+  Pull()
+  {
+    this.request.GetLoginData(this.Email)
+      .subscribe( data => {
+          if(data != null)
+          {
+            if(data.EmailId==this.Email)
+            {
+              this.request.showControls= true;
+              console.log(data);
+              localStorage.setItem("detail",JSON.stringify(data));
+              alert("Check local storage")
+              this.model = JSON.parse(localStorage.getItem("detail"));
+              this.User = this.model.CustomerName;
+              this.Amount =this.model.AccountBalance;
+            }
+          }
+          else{
+            console.log("Fail");
+          }
+        }
+      );
   }
 
 }
