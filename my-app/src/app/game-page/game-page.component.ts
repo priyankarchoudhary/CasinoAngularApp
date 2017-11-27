@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginServiceService} from "../login-service.service";
-import { CookieService } from 'angular2-cookie/services/cookies.service';
+import {LoginServiceService} from "../LoginService/login-service.service";
 import {Router} from "@angular/router";
-import {GameServiceService} from "../game-service.service";
+import {GameServiceService} from "../GameService/game-service.service";
 
 
 @Component({
@@ -40,10 +39,7 @@ export class GamePageComponent implements OnInit {
     this.mainModel.NinteentoThirtySix = 0;
     this.mainModel.Even = 0;
     this.mainModel.Odd = 0;
-
-
     this.Pull()
-
 
   }
 
@@ -71,7 +67,7 @@ export class GamePageComponent implements OnInit {
                 }
              }
              this.loc+=1; // id of the value on which you bet//alert(this.Email+" "+this.bettingAmount+" "+this.loc+"chekc")
-           if(this.bettingAmount > this.Amount)
+           if(this.bettingAmount > this.Amount || this.bettingAmount%500 != 0)
            {
              (<HTMLInputElement>(document.getElementById("balancecondition"))).click();
            }
@@ -157,21 +153,16 @@ export class GamePageComponent implements OnInit {
         this.mult = this.catB;
       }
       break;
-
-
       default:
         this.message = "Lose";
-        this. message_top = "Congratulations";
+        this. message_top = "Sorry";
         this.mult = this.catA;
         break
 
     }
     choice = 0;
-   // alert(this.mult+"I am here")
     this.GetReward(this.mult);
     this.ngOnInit()
-
-
   }
 
   GetReward(muliplicationFactor)
@@ -180,30 +171,6 @@ export class GamePageComponent implements OnInit {
       this.winningAmount = this.bettingAmount * muliplicationFactor;
       (<HTMLInputElement>(document.getElementById("wonbtn"))).click();
       this.AddMoneyFunction(this.Email, this.bettingAmount, muliplicationFactor);
-
-
-      // this.request.GetLoginData(this.Email)
-      // .subscribe( data => {
-      //     if(data != null)
-      //     {
-      //       if(data.EmailId==this.Email)
-      //       {
-      //         this.request.showControls= true;
-      //         console.log(data);
-      //         localStorage.setItem("detail",JSON.stringify(data));
-      //         alert("Check local storage")
-      //         this.model = JSON.parse(localStorage.getItem("detail"));
-      //         this.User = this.model.CustomerName;
-      //         this.Amount =this.model.AccountBalance;
-      //       }
-      //     }
-      //     else{
-      //       console.log("Fail");
-      //     }
-      //   }
-      // );
-
-
   }
 
   AddMoneyFunction(email,bettingAmount,mult)
@@ -226,10 +193,24 @@ export class GamePageComponent implements OnInit {
         }
       });
 
+    this.request.GetLoginData(email)
+      .subscribe( data => {
+        if(data != null)
+        {
 
+          if(data.EmailId==email)
+          {
+            this.request.showControls= true;
+            localStorage.setItem("detail",JSON.stringify(data));
+            this.router.navigate(['/gamepage']);
+          }}
+      });
 
+  this.model = JSON.parse(localStorage.getItem("detail"));
+  this.User = this.model.CustomerName;
+  this.Amount =this.model.AccountBalance;
 
-
+    this.ngOnInit()
   }
 
   BlockMoneyFunction(email,bettingAmount,temp)
@@ -249,7 +230,7 @@ export class GamePageComponent implements OnInit {
 
       });
   }
-//C:\Users\priyankarchoudhary\WebstormProjects\CasinoAngularApp\my-app\src\app\game-page\game-page.component.ts
+
   Logout($event)
   {
     event.preventDefault();
@@ -269,7 +250,7 @@ export class GamePageComponent implements OnInit {
             if(data.EmailId==this.Email)
             {
               this.request.showControls= true;
-              console.log(data);
+
               localStorage.setItem("detail",JSON.stringify(data));
 
               this.model = JSON.parse(localStorage.getItem("detail"));
@@ -282,6 +263,11 @@ export class GamePageComponent implements OnInit {
           }
         }
       );
+  }
+
+  HomePage()
+  {
+    location.href = "/gamepage";
   }
 
 }

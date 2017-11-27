@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {LoginServiceService} from "../login-service.service";
+import {LoginServiceService} from "../LoginService/login-service.service";
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 @Component({
@@ -11,24 +11,20 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
 export class LoginPageComponent implements OnInit {
 
   constructor(private request :LoginServiceService,private _cookieService:CookieService,private router :Router) { }
-  errorMessage : any;
-  ngOnInit() {
+  errorMessage : string;
+  flag = false;
 
-    //console.log("Set Test Cookie as Test");
+  ngOnInit() {  }
 
-  }
-
-  getCookie(key: string){
-    return this._cookieService.get(key);
-  }
 
   LoginValidate(email) {
     localStorage.clear();
+
     this.request.GetLoginData(email)
       .subscribe( data => {
           if(data != null)
           {
-              console.log('this is my data');
+
             if(data.EmailId==email)
             {
               this.request.showControls= true;
@@ -38,15 +34,18 @@ export class LoginPageComponent implements OnInit {
             }
             else
             {
+              this.flag=true;
               this.errorMessage = "OOPS! Can not login"
-              let k = this.errorMessage;
+
+
             }
 
           }
           else{
             console.log("Fail");
-            this.errorMessage = "OOPS! Can not login"
-            let k = this.errorMessage;
+            this.flag=true;
+            this.errorMessage = "OOPS! Can not login; something went wrong on server side";
+
           }
         }
       );

@@ -14,7 +14,7 @@ body
 .mainComponent
 {
   margin-left: 29%;
-  margin-top: 30%;
+
 }
 .submitbutton{
   background-color:  darkgreen;
@@ -28,7 +28,7 @@ body
 .topRightPanel
 {
   background-color: white;
-  width: 250px;
+  width: 220px;
   top: 4% ;
   right: 8%;
   position: absolute;
@@ -42,7 +42,7 @@ body
   background-color: white;
   border-style: solid;
   top: 4% ;
-  right: 0%;
+  right: 4%;
   position: absolute;
   height: 50px;
   border-style: solid;
